@@ -1,0 +1,17 @@
+{
+    "name": "Crypto",
+    "license": "MIT",
+    "type": "project",
+    "description": "TP vigenere",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "~1.2",
+        "symfony/twig-bridge": "~2.3"
+
+    }
+}

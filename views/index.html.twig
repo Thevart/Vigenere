@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <title>Tp security - Vigenere</title>
+    <link href='css/style.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/foundation.css">
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div id="bg">
+        <img src="img/bg.jpg" alt="">
+    </div>
+    <div id="opacity">
+    </div>
+
+    <div class="title">
+        <h1>Implementation and cryptanalysis of Vigenère</h1>
+        <h3>By Arthur THEVENET & Kevin GOMEZ</h3>
+        December 2014
+    </div>
+
+    <div class="row">
+
+    <div class="large-4 columns">
+        <h3>Exercises :</h3>
+
+        <dl class="tabs vertical" data-tab>
+            <dd class="active"><a href="#panel1">Exercise 1</a></dd>
+            <dd><a href="#panel2">Exercise 2</a></dd>
+            <dd><a href="#panel3">Exercise 3</a></dd>
+            <dd><a href="#panel4">Exercise 4</a></dd>
+            <dd><a href="#panel5">Exercise 5</a></dd>
+            <dd><a href="#panel6">Exercise 6/7</a></dd>
+            <dd><a href="#panel8">Exercise 8</a></dd>
+            <dd><a href="#panel9">Exercise 9</a></dd>
+            <dd><a href="#panel10">Exercise 10</a></dd>
+            <dd><a href="#panel11">Exercise 11</a></dd>
+            <dd><a href="#panel12">Exercise 12</a></dd>
+            <dd><a href="#panel13">Exercise 13</a></dd>
+            <dd><a href="#panel14">Exercise 14</a></dd>
+            <dd><a href="#panel15">Exercise  15</a></dd>
+            <dd><a href="#panel16">Exercise 16</a></dd>
+        </dl>
+    </div>
+    <div class="large-8  columns">
+        <div class="tabs-content">
+            <div class="content active" id="panel1">
+                <h3>Exercise 1</h3>
+                <div class="order">
+                    Implement a program (in C for example) that asks the user for a text, and that displays
+                    it.
+                </div>
+                Type your plaintext
+                <input type="text" id="exercice1" placeholder="Text"></text>
+                <input type="submit" name="submit" value="Submit" onclick="document.getElementById('result1').innerHTML = document.getElementById('exercice1').value">
+                <div id="result1" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel2">
+                <h3>Exercise 2</h3>
+
+                <div class="order">
+                    Modify your program so that all letters are converted to lower-case, and all non-letter
+                    characters are removed.
+                </div>
+                <input type="text" id="exercice2Text" placeholder="Text to lower"></text>
+                <input type="button" id="exercice2Submit" value="Submit">
+
+                <div id="exercice2Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel3">
+                <h3>Exercise 3</h3>
+                <div class="order">
+                    Implement a function that takes as input two lower-case letters (one being a letter of the
+                    plaintext and the other being a letter of the key), and that returns the corresponding lower-case letter
+                    of the cipher.
+                </div>
+                <input type="text" maxlength="1" id="exercice3Letter1" placeholder="Char 1"></text>
+                <input type="text" maxlength="1" id="exercice3Letter2" placeholder="Char 2"></text>
+                <input type="button" id="exercice3Submit" value="Submit">
+
+                <div id="exercice3Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel4">
+                <h3>Exercise 4</h3>
+                <div class="order">
+                    Modify your program so that it asks the user for two texts (one being the plaintext and
+                    the other being the key), converts both of them (according to Exercise 2), and encrypts the plaintext
+                    using the Vigenère cipher and the given key.
+                </div>
+                <input type="text" id="exercice4Text1" placeholder="Key" ></text>
+                <input type="text" id="exercice4Text2" placeholder="Plaintext"></text>
+                <input type="button" id="exercice4Submit" value="Submit">
+
+                <div id="exercice4Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel5">
+                <h3>Exercise 5</h3>
+                <div class="order">
+                    Implement a program that asks the user for two texts (one being the cipher and the
+                    other being the key), and decrypts them.
+                </div>
+                <input type="text" id="exercice5Text1" placeholder="Key"></text>
+                <input type="text" id="exercice5Text2" placeholder="Encrypted Message"></text>
+                <input type="button" id="exercice5Submit" value="Submit">
+
+                <div id="exercice5Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel6">
+                <h3>Exercise 6/7</h3>
+                <div class="order">
+                    Implement a program that takes as input a cipher, and that displays all occurrences of
+                    repeated sequence of letters of size 3 or more.
+                </div>
+                <div class="order">
+                    Modify your program so that it computes the key length from the distance between repetitions
+                </div>
+                <input type="text" id="exercice6Text" placeholder="Cipher"></text>
+                <input type="button" id="exercice6Submit" value="Submit">
+
+                <div id="exercice6Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel8">
+                <h2>Exercice 8</h2>
+                <div class="order">
+                    Improve your program by removing some unlikely repetitions (say 10% of the total
+                    repetitions). Explain what you considered as unlikely.
+                </div>
+                <input type="text" id="exercice8Text" placeholder="Cipher"></text>
+                <input type="button" id="exercice8Submit" value="Submit">
+
+                <div id="exercice8Result" class="result">
+                    Response
+                </div>
+                <br>
+                <div class="response">
+                    We used the Kasiki examination to remove useless repetitions.
+                    We computed the length between two repetitions foreach occurrence and we get all the factors of each lengths.
+                    Then, we selected only the occurrences which had length factors intersecting with the others one, allowing to deleting all the useless occurences.
+                </div>
+
+            </div>
+            <div class="content" id="panel9">
+                <h3>Execice 9</h3>
+                <div class="order">
+                    Let Tr be a large, randomly generated text, using only lower-case letters. What is the
+                    probability Kr that two randomly chosen letters are the same in Tr?
+                </div>
+                <input type="text" value="1/26" disabled>
+            </div>
+            <div class="content" id="panel10">
+                <h3>Execice 10</h3>
+                <div class="order">
+                    Let Te be a large, English text using only lower-case letters. The probability that two
+                    randomly chosen letters are the same in Te is Ke≈0.067. Explain why it is equal to or different from
+                    the probability with Tr
+                </div>
+                <input type="text" value="Not uniform repartition" disabled>
+            </div>
+            <div class="content" id="panel11">
+                <h3>Execice 11</h3>
+                <div class="order">
+                    Let T be a text using only lower-case letters. Write a program that computes the
+                    probability K that randomly chosen letters are the same in T.
+                </div>
+            </div>
+            <div class="content" id="panel12">
+                <h3>Execice 12</h3>
+                <div class="order">
+                    The Friedman test estimates the key length L as being (Ke-Kr)/(K-Kr). Compute L.
+                </div>
+                <input type="text" value="Not uniform repartition" disabled>
+
+            </div>
+            <div class="content" id="panel13">
+                <h3>Execice 13</h3>
+
+            </div>
+            <div class="content" id="panel14">
+                <h3>Execice 14</h3>
+
+            </div>
+            <div class="content" id="panel15">
+                <h3>Exercise 15</h3>
+                <div class="order">
+                    Implement a program that takes as input a cipher, a probable word and a position. The
+                    program tries to decrypt the cipher (from the given position to the given position plus the probable
+                    word length), using the probable word as a key. If the probable word is correctly placed, the output
+                    would be the key
+                </div>
+                <input type="text" id="exercice15Cipher" placeholder="Cipher"></text>
+                <input type="text" id="exercice15ProbableWord" placeholder="Probable word"></text>
+                <input type="number" id="exercice15Position" placeholder="Position"></text>
+                <input type="button" id="exercice15Submit" value="Submit">
+
+                <div id="exercice15Result" class="result">
+                    Response
+                </div>
+            </div>
+            <div class="content" id="panel16">
+                <h3>Exercise 16</h3>
+                <div class="order">
+                    Modify your program so that it does not take a position anymore, and outputs all the
+                    possible keys.
+                </div>
+                <input type="text" id="exercice16Cipher" placeholder="Cipher"></text>
+                <input type="text" id="exercice16ProbableWord" placeholder="Probable word"></text>
+                <input type="button" id="exercice16Submit" value="Submit">
+
+                <div id="exercice16Result" class="result">
+                    Response
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+    </div>
+    <div class="footer">
+        Blaise Pascal University - 2014
+    </div>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>
